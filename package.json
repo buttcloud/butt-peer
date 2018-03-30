@@ -1,0 +1,44 @@
+{
+  "name": "butt-peer",
+  "version": "0.0.0",
+  "description": "the peer server (aka `sbot server`) for your Scuttlebutt pub",
+  "main": "index.js",
+  "bin": "bin.js",
+  "scripts": {
+    "start": "node ./bin",
+    "test:deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "test:lint": "standard",
+    "test": "npm-run-all -s test:lint test:deps",
+    "docker:build": "docker build -t buttcloud/butt-peer .",
+    "docker:push": "docker push buttcloud/butt-peer",
+    "docker:run": "docker run -it --rm --init -v ~/.ssb:/home/node/.ssb --net=host buttcloud/butt-peer"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahdinosaur/butt-peer.git"
+  },
+  "keywords": [],
+  "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ahdinosaur/butt-peer/issues"
+  },
+  "homepage": "https://github.com/ahdinosaur/butt-peer#readme",
+  "devDependencies": {
+    "dependency-check": "^2.7.0",
+    "npm-run-all": "^4.0.1",
+    "standard": "^8.6.0"
+  },
+  "dependencies": {
+    "pino": "^4.15.3",
+    "scuttlebot": "^11.1.1",
+    "ssb-blobs": "^1.1.4",
+    "ssb-config": "^2.2.0",
+    "ssb-ebt": "^5.1.4",
+    "ssb-friends": "^2.4.0",
+    "ssb-keys": "^7.0.14",
+    "ssb-links": "^3.0.3",
+    "ssb-query": "^2.0.1",
+    "ssb-ws": "^2.1.0"
+  }
+}
