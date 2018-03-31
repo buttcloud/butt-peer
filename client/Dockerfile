@@ -4,10 +4,10 @@ MAINTAINER Michael Williams <michael.williams@enspiral.com>
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY ./package*.json ./
 RUN npm install
 COPY . .
 
 USER node
 EXPOSE 8008
-ENTRYPOINT [ "/usr/src/app/bin.js" ]
+ENTRYPOINT [ "/usr/src/app/client/bin.js" ]

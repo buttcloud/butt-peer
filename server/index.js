@@ -1,16 +1,13 @@
 const { writeFileSync } = require('fs')
 var Url = require('url')
 var { join } = require('path')
-var Config = require('ssb-config/inject')
-var Keys = require('ssb-keys')
 var Server = require('scuttlebot')
 
-module.exports = Peer
+var Config = require('../config')
 
-function Peer (config) {
-  var config = Config(process.env.ssb_appname)
-  config.keys = Keys.loadOrCreateSync(join(config.path, 'secret'))
+module.exports = startServer
 
+function startServer () {
   var createServer = Server
       .use(require('scuttlebot/plugins/plugins'))
       .use(require('scuttlebot/plugins/master'))
@@ -26,6 +23,7 @@ function Peer (config) {
       .use(require('ssb-ws'))
       .use(require('ssb-ebt'))
 
+  var config = Config()
   var server = createServer(config)
 
   // write RPC manifest to ~/.ssb/manifest.json

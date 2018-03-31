@@ -9,9 +9,12 @@
     "test:deps": "dependency-check . && dependency-check . --extra --no-dev",
     "test:lint": "standard",
     "test": "npm-run-all -s test:lint test:deps",
-    "docker:build": "docker build -t buttcloud/butt-peer .",
-    "docker:push": "docker push buttcloud/butt-peer",
-    "docker:run": "docker run -it --rm --init -v ~/.ssb:/home/node/.ssb --net=host buttcloud/butt-peer"
+    "docker:server:build": "docker build -t buttcloud/butt-peer-server -f server/Dockerfile .",
+    "docker:server:push": "docker push buttcloud/butt-peer-server",
+    "docker:server:run": "docker run -it --rm --init -v ~/.ssb:/home/node/.ssb --net=host buttcloud/butt-peer-server",
+    "docker:client:build": "docker build -t buttcloud/butt-peer-client -f client/Dockerfile .",
+    "docker:client:push": "docker push buttcloud/butt-peer-client",
+    "docker:client:run": "docker run -it --rm --init -v ~/.ssb:/home/node/.ssb --net=host buttcloud/butt-peer-client"
   },
   "repository": {
     "type": "git",
@@ -30,7 +33,10 @@
     "standard": "^8.6.0"
   },
   "dependencies": {
+    "multiblob": "^1.13.0",
+    "muxrpcli": "^1.1.0",
     "pino": "^4.15.3",
+    "pull-stream": "^3.6.7",
     "scuttlebot": "^11.1.1",
     "ssb-blobs": "^1.1.4",
     "ssb-config": "^2.2.0",
@@ -39,6 +45,7 @@
     "ssb-keys": "^7.0.14",
     "ssb-links": "^3.0.3",
     "ssb-query": "^2.0.1",
-    "ssb-ws": "^2.1.0"
+    "ssb-ws": "^2.1.0",
+    "stream-to-pull-stream": "^1.7.2"
   }
 }
