@@ -9,10 +9,10 @@
     "test:deps": "dependency-check . && dependency-check . --extra --no-dev",
     "test:lint": "standard",
     "test": "npm-run-all -s test:lint test:deps",
-    "docker:server:build": "docker build -t buttcloud/butt-peer-server -f server/Dockerfile .",
+    "docker:server:build": "docker build -t buttcloud/butt-peer-server -f Dockerfile.server .",
     "docker:server:push": "docker push buttcloud/butt-peer-server",
     "docker:server:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host buttcloud/butt-peer-server",
-    "docker:client:build": "docker build -t buttcloud/butt-peer-client -f client/Dockerfile .",
+    "docker:client:build": "docker build -t buttcloud/butt-peer-client -f Dockerfile.client .",
     "docker:client:push": "docker push buttcloud/butt-peer-client",
     "docker:client:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host buttcloud/butt-peer-client"
   },
