@@ -1,12 +1,21 @@
 # butt-peer
 
-[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/butt-peer.svg)](https://hub.docker.com/r/buttcloud/butt-peer/)
 
 the peer server (aka `sbot server`) for your Scuttlebutt pub
 
 **(see TODO `buttcloud/butt` for how to run a production-quality pub server)**
 
-## install
+## usage
+
+to interact with peer server, use peer client!
+
+the usage should be the same as [`scuttlebot`](https://github.com/ssbc/scuttlebot)
+
+## server
+
+[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/butt-peer-server.svg)](https://hub.docker.com/r/buttcloud/butt-peer-server/)
+
+### install
 
 as Docker images:
 
@@ -17,7 +26,37 @@ docker run -it --rm --init \
   -v ~/.ssb:/home/node/.ssb \
   -p 8008:8008 \
   buttcloud/butt-peer-server
+```
 
+or standalone:
+
+```sh
+git clone git://github.com/buttcloud/butt-peer butt-peer
+cd butt-peer
+npm install
+./server/bin.js
+```
+
+## config
+
+to change `butt-peer`'s default options, edit your `~/.ssb/config` to have properties like:
+
+```json
+{
+  "port": 8008,
+  "host": "::"
+}
+```
+
+## client
+
+[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/butt-peer-client.svg)](https://hub.docker.com/r/buttcloud/butt-peer-client/)
+
+### install
+
+as Docker images:
+
+```sh
 docker pull buttcloud/butt-peer-client
 docker run -it --rm --init \
   --name butt-peer-client \
@@ -32,28 +71,9 @@ or standalone:
 git clone git://github.com/buttcloud/butt-peer butt-peer
 cd butt-peer
 npm install
-
-./server/bin.js
-
 ./client/bin.js
 ```
 
-## usage
-
-to interact with peer server, use peer client!
-
-the usage should be the same as [`scuttlebot`](https://github.com/ssbc/scuttlebot)
-
-## config
-
-to change `butt-peer`'s default options, edit your `~/.ssb/config` to have properties like:
-
-```json
-{
-  "port": 8008,
-  "host": "::"
-}
-```
 ## license
 
 The [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) License
