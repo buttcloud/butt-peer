@@ -8,15 +8,22 @@ the peer server (aka `sbot server`) for your Scuttlebutt pub
 
 ## install
 
-as a Docker image:
+as Docker images:
 
 ```sh
-docker pull buttcloud/butt-peer
+docker pull buttcloud/butt-peer-server
 docker run -it --rm --init \
-  --name butt-peer \
+  --name butt-peer-server \
   -v ~/.ssb:/home/node/.ssb \
   -p 8008:8008 \
-  buttcloud/butt-peer
+  buttcloud/butt-peer-server
+
+docker pull buttcloud/butt-peer-client
+docker run -it --rm --init \
+  --name butt-peer-client \
+  -v ~/.ssb:/home/node/.ssb \
+  --net=host \
+  buttcloud/butt-peer-client
 ```
 
 or standalone:
@@ -25,12 +32,17 @@ or standalone:
 git clone git://github.com/buttcloud/butt-peer butt-peer
 cd butt-peer
 npm install
-./bin.js
+
+./server/bin.js
+
+./client/bin.js
 ```
 
 ## usage
 
-to interact with peer server, use TODO `buttcloud/butt-cli`
+to interact with peer server, use peer client!
+
+the usage should be the same as [`scuttlebot`](https://github.com/ssbc/scuttlebot)
 
 ## config
 
