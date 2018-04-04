@@ -8,6 +8,4 @@ COPY ./package*.json ./
 RUN npm install
 COPY . .
 
-USER node
-EXPOSE 8008
 ENTRYPOINT [ "/usr/src/app/client/bin.js" ]
