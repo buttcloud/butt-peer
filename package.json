@@ -1,6 +1,6 @@
 {
   "name": "butt-peer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "the peer server (aka `sbot server`) for your Scuttlebutt pub",
   "main": "index.js",
   "bin": "bin.js",
