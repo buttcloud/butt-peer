@@ -36,10 +36,8 @@ function startServer () {
       process.exit(1)
     } else {
       const env = process.env.NODE_ENV || 'undefined'
-      const url = Url.parse(address)
       server.logger.info({
-        url: address,
-        port: url.port,
+        address,
         env
       })
     }
