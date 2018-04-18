@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "bin.js",
   "scripts": {
-    "start": "node ./bin",
+    "start": "node ./server/bin",
     "test:deps": "dependency-check . && dependency-check . --extra --no-dev",
     "test:lint": "standard",
     "test": "npm-run-all -s test:lint test:deps",
