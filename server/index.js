@@ -9,6 +9,7 @@ module.exports = startServer
 
 function startServer () {
   var createServer = Server
+      .use(require('./plugins/address'))
       .use(require('scuttlebot/plugins/plugins'))
       .use(require('scuttlebot/plugins/master'))
       .use(require('scuttlebot/plugins/gossip'))
