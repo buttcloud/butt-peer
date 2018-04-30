@@ -1,4 +1,4 @@
-# butt-peer
+# buttpub-peer
 
 
 the peer server (aka `sbot server`) for your Scuttlebutt pub
@@ -13,33 +13,33 @@ the usage should be the same as [`scuttlebot`](https://github.com/ssbc/scuttlebo
 
 ## server
 
-[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/butt-peer-server.svg)](https://hub.docker.com/r/buttcloud/butt-peer-server/)
+[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/buttpub-peer-server.svg)](https://hub.docker.com/r/buttcloud/buttpub-peer-server/)
 
 ### install
 
 as Docker images:
 
 ```sh
-docker pull buttcloud/butt-peer-server
+docker pull buttcloud/buttpub-peer-server
 docker run -it --rm --init \
-  --name butt-peer-server \
+  --name buttpub-peer-server \
   -v ~/.ssb:/home/node/.ssb \
   -p 8008:8008 \
-  buttcloud/butt-peer-server
+  buttcloud/buttpub-peer-server
 ```
 
 or standalone:
 
 ```sh
-git clone git://github.com/buttcloud/butt-peer butt-peer
-cd butt-peer
+git clone git://github.com/buttcloud/buttpub-peer buttpub-peer
+cd buttpub-peer
 npm install
 ./server/bin.js
 ```
 
 ## config
 
-to change `butt-peer`'s default options, edit your `~/.ssb/config` to have properties like:
+to change `buttpub-peer`'s default options, edit your `~/.ssb/config` to have properties like:
 
 ```json
 {
@@ -50,26 +50,26 @@ to change `butt-peer`'s default options, edit your `~/.ssb/config` to have prope
 
 ## client
 
-[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/butt-peer-client.svg)](https://hub.docker.com/r/buttcloud/butt-peer-client/)
+[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/buttpub-peer-client.svg)](https://hub.docker.com/r/buttcloud/buttpub-peer-client/)
 
 ### install
 
 as Docker images:
 
 ```sh
-docker pull buttcloud/butt-peer-client
+docker pull buttcloud/buttpub-peer-client
 docker run -it --rm --init \
-  --name butt-peer-client \
+  --name buttpub-peer-client \
   -v ~/.ssb:/home/node/.ssb \
   --net=host \
-  buttcloud/butt-peer-client
+  buttcloud/buttpub-peer-client
 ```
 
 or standalone:
 
 ```sh
-git clone git://github.com/buttcloud/butt-peer butt-peer
-cd butt-peer
+git clone git://github.com/buttcloud/buttpub-peer buttpub-peer
+cd buttpub-peer
 npm install
 ./client/bin.js
 ```

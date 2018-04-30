@@ -1,5 +1,5 @@
 {
-  "name": "butt-peer",
+  "name": "buttpub-peer",
   "version": "1.1.0",
   "description": "the peer server (aka `sbot server`) for your Scuttlebutt pub",
   "main": "index.js",
@@ -9,24 +9,24 @@
     "test:deps": "dependency-check . && dependency-check . --extra --no-dev",
     "test:lint": "standard",
     "test": "npm-run-all -s test:lint test:deps",
-    "docker:server:build": "docker build -t buttcloud/butt-peer-server -f Dockerfile.server .",
-    "docker:server:push": "docker push buttcloud/butt-peer-server",
-    "docker:server:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host buttcloud/butt-peer-server",
-    "docker:client:build": "docker build -t buttcloud/butt-peer-client -f Dockerfile.client .",
-    "docker:client:push": "docker push buttcloud/butt-peer-client",
-    "docker:client:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host buttcloud/butt-peer-client"
+    "docker:server:build": "docker build -t buttcloud/buttpub-peer-server -f Dockerfile.server .",
+    "docker:server:push": "docker push buttcloud/buttpub-peer-server",
+    "docker:server:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host buttcloud/buttpub-peer-server",
+    "docker:client:build": "docker build -t buttcloud/buttpub-peer-client -f Dockerfile.client .",
+    "docker:client:push": "docker push buttcloud/buttpub-peer-client",
+    "docker:client:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host buttcloud/buttpub-peer-client"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahdinosaur/butt-peer.git"
+    "url": "git+https://github.com/ahdinosaur/buttpub-peer.git"
   },
   "keywords": [],
   "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/ahdinosaur/butt-peer/issues"
+    "url": "https://github.com/ahdinosaur/buttpub-peer/issues"
   },
-  "homepage": "https://github.com/ahdinosaur/butt-peer#readme",
+  "homepage": "https://github.com/ahdinosaur/buttpub-peer#readme",
   "devDependencies": {
     "dependency-check": "^2.7.0",
     "npm-run-all": "^4.0.1",
