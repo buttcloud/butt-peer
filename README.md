@@ -1,9 +1,9 @@
-# buttpub-peer
+# peachpub-peer
 
 
 the peer server (aka `sbot server`) for your Scuttlebutt pub
 
-**(see TODO `buttcloud/butt` for how to run a production-quality pub server)**
+**(see TODO `peachcloud/butt` for how to run a production-quality pub server)**
 
 ## usage
 
@@ -13,33 +13,33 @@ the usage should be the same as [`scuttlebot`](https://github.com/ssbc/scuttlebo
 
 ## server
 
-[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/buttpub-peer-server.svg)](https://hub.docker.com/r/buttcloud/buttpub-peer-server/)
+[![Docker Automated build](https://img.shields.io/docker/automated/peachcloud/peachpub-peer-server.svg)](https://hub.docker.com/r/peachcloud/peachpub-peer-server/)
 
 ### install
 
 as Docker images:
 
 ```sh
-docker pull buttcloud/buttpub-peer-server
+docker pull peachcloud/peachpub-peer-server
 docker run -it --rm --init \
-  --name buttpub-peer-server \
+  --name peachpub-peer-server \
   -v ~/.ssb:/home/node/.ssb \
   -p 8008:8008 \
-  buttcloud/buttpub-peer-server
+  peachcloud/peachpub-peer-server
 ```
 
 or standalone:
 
 ```sh
-git clone git://github.com/buttcloud/buttpub-peer buttpub-peer
-cd buttpub-peer
+git clone git://github.com/peachcloud/peachpub-peer peachpub-peer
+cd peachpub-peer
 npm install
 ./server/bin.js
 ```
 
 ## config
 
-to change `buttpub-peer`'s default options, edit your `~/.ssb/config` to have properties like:
+to change `peachpub-peer`'s default options, edit your `~/.ssb/config` to have properties like:
 
 ```json
 {
@@ -50,26 +50,26 @@ to change `buttpub-peer`'s default options, edit your `~/.ssb/config` to have pr
 
 ## client
 
-[![Docker Automated build](https://img.shields.io/docker/automated/buttcloud/buttpub-peer-client.svg)](https://hub.docker.com/r/buttcloud/buttpub-peer-client/)
+[![Docker Automated build](https://img.shields.io/docker/automated/peachcloud/peachpub-peer-client.svg)](https://hub.docker.com/r/peachcloud/peachpub-peer-client/)
 
 ### install
 
 as Docker images:
 
 ```sh
-docker pull buttcloud/buttpub-peer-client
+docker pull peachcloud/peachpub-peer-client
 docker run -it --rm --init \
-  --name buttpub-peer-client \
+  --name peachpub-peer-client \
   -v ~/.ssb:/home/node/.ssb \
   --net=host \
-  buttcloud/buttpub-peer-client
+  peachcloud/peachpub-peer-client
 ```
 
 or standalone:
 
 ```sh
-git clone git://github.com/buttcloud/buttpub-peer buttpub-peer
-cd buttpub-peer
+git clone git://github.com/peachcloud/peachpub-peer peachpub-peer
+cd peachpub-peer
 npm install
 ./client/bin.js
 ```
