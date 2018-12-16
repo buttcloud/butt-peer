@@ -1,0 +1,3 @@
+#!/usr/bin/nodejs
+
+require('./')()

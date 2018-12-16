@@ -1,51 +1,63 @@
 {
-  "name": "peachpub-peer",
-  "version": "1.1.1",
-  "description": "the peer server (aka `sbot server`) for your Scuttlebutt pub",
+  "name": "peach-ssb-server",
+  "version": "0.0.0",
+  "description": "Scuttlebutt server for PeachCloud",
   "main": "index.js",
   "bin": "bin.js",
   "scripts": {
-    "start": "node ./server/bin",
+    "example": "PEACH_CONFIG=./example/config PEACH_STATE=./example/state node bin",
+    "style:format": "prettier-standard '**/*.js' '**/*.md'",
+    "style:lint": "standard",
+    "style": "npm-run-all -s style:format style:lint",
     "test:deps": "dependency-check . && dependency-check . --extra --no-dev",
-    "test:lint": "standard",
-    "test": "npm-run-all -s test:lint test:deps",
-    "docker:server:build": "docker build -t peachcloud/peachpub-peer-server -f Dockerfile.server .",
-    "docker:server:push": "docker push peachcloud/peachpub-peer-server",
-    "docker:server:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host peachcloud/peachpub-peer-server",
-    "docker:client:build": "docker build -t peachcloud/peachpub-peer-client -f Dockerfile.client .",
-    "docker:client:push": "docker push peachcloud/peachpub-peer-client",
-    "docker:client:run": "docker run -it --rm --init -v $PWD/data:/home/node/.ssb --net=host peachcloud/peachpub-peer-client"
+    "test:node": "ava",
+    "test:coverage": "nyc npm run test:node",
+    "test:coverage:report": "nyc report --reporter=lcov npm run test:node",
+    "test": "npm-run-all -s test:node style:lint test:deps"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier-standard",
+        "standard",
+        "git add"
+      ],
+      "*.md": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
+  },
+  "standard": {
+    "globals": []
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahdinosaur/peachpub-peer.git"
+    "url": "git+https://github.com/ahdinosaur/peach-ssb-server.git"
   },
   "keywords": [],
-  "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
-  "license": "AGPL-3.0",
+  "author": "Mikey <michael.williams@enspiral.com> (https://dinosaur.is)",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ahdinosaur/peachpub-peer/issues"
+    "url": "https://github.com/ahdinosaur/peach-ssb-server/issues"
   },
-  "homepage": "https://github.com/ahdinosaur/peachpub-peer#readme",
+  "homepage": "https://github.com/ahdinosaur/peach-ssb-server#readme",
   "devDependencies": {
-    "dependency-check": "^2.7.0",
+    "ava": "^0.25.0",
+    "dependency-check": "^3.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.5",
     "npm-run-all": "^4.0.1",
-    "standard": "^8.6.0"
+    "nyc": "^11.7.1",
+    "prettier-standard": "^8.0.1",
+    "standard": "^11.0.1"
   },
   "dependencies": {
-    "multiblob": "^1.13.0",
-    "muxrpcli": "^1.1.0",
-    "pino": "^4.15.3",
-    "pull-stream": "^3.6.7",
-    "scuttlebot": "^11.1.1",
-    "ssb-blobs": "^1.1.4",
-    "ssb-config": "^2.2.0",
-    "ssb-ebt": "^5.1.4",
-    "ssb-friends": "^2.4.0",
-    "ssb-keys": "^7.0.14",
-    "ssb-links": "^3.0.3",
-    "ssb-query": "^2.0.1",
-    "ssb-ws": "^2.1.0",
-    "stream-to-pull-stream": "^1.7.2"
+    "peach-config": "github:peachcloud/peach-config-js",
+    "pino": "^5.10.1",
+    "scuttlebot-release": "^13.0.1",
+    "ssb-blobs": "^1.1.7",
+    "ssb-ebt": "^5.2.7",
+    "ssb-friends": "^3.1.7"
   }
 }

@@ -1,94 +1,37 @@
-# peachpub-peer
+# peach-ssb-server-js
 
+[Scuttlebutt](https://scuttlebutt.nz) server for [PeachCloud](https://peachcloud.org)
 
-the peer server (aka `sbot server`) for your Scuttlebutt pub
-
-**(see TODO `peachcloud/butt` for how to run a production-quality pub server)**
-
-## usage
-
-to interact with peer server, use peer client!
-
-the usage should be the same as [`scuttlebot`](https://github.com/ssbc/scuttlebot)
-
-## server
-
-[![Docker Automated build](https://img.shields.io/docker/automated/peachcloud/peachpub-peer-server.svg)](https://hub.docker.com/r/peachcloud/peachpub-peer-server/)
-
-### install
-
-as Docker images:
-
-```sh
-docker pull peachcloud/peachpub-peer-server
-docker run -it --rm --init \
-  --name peachpub-peer-server \
-  -v ~/.ssb:/home/node/.ssb \
-  -p 8008:8008 \
-  peachcloud/peachpub-peer-server
+```shell
+npm install -g peach-ssb-server
 ```
 
-or standalone:
+## cli
 
-```sh
-git clone git://github.com/peachcloud/peachpub-peer peachpub-peer
-cd peachpub-peer
-npm install
-./server/bin.js
+```shell
+peach-ssb-server
 ```
 
-## config
+runs an [ssb server](https://github.com/ssbc/ssb-server) with opinionated config and plugins.
 
-to change `peachpub-peer`'s default options, edit your `~/.ssb/config` to have properties like:
+## api
 
-```json
-{
-  "port": 8008,
-  "host": "::"
-}
-```
-
-## client
-
-[![Docker Automated build](https://img.shields.io/docker/automated/peachcloud/peachpub-peer-client.svg)](https://hub.docker.com/r/peachcloud/peachpub-peer-client/)
-
-### install
-
-as Docker images:
-
-```sh
-docker pull peachcloud/peachpub-peer-client
-docker run -it --rm --init \
-  --name peachpub-peer-client \
-  -v ~/.ssb:/home/node/.ssb \
-  --net=host \
-  peachcloud/peachpub-peer-client
-```
-
-or standalone:
-
-```sh
-git clone git://github.com/peachcloud/peachpub-peer peachpub-peer
-cd peachpub-peer
-npm install
-./client/bin.js
-```
+### `createSsbServer = require('peach-ssb-server')`
 
 ## license
 
-The [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) License
+The Apache License
 
 Copyright &copy; 2018 Michael Williams
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
+    http://www.apache.org/licenses/LICENSE-2.0
 
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
