@@ -1,0 +1,16 @@
+Source: peach-ssb-server
+Section: net
+Priority: optional
+Maintainer: "Michael Williams" <michael.williams@enspiral.com>
+Build-Depends:
+  debhelper (>=10~)
+  , nodejs (>= 10), nodejs (<< 11)
+Standards-Version: 4.1.4
+
+Package: peach-ssb-server
+Architecture: any
+Depends:
+  ${misc:Depends}
+  , ${shlibs:Depends}
+  , nodejs
+Description: A Scuttlebutt server for PeachCloud

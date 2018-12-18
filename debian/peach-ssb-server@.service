@@ -1,0 +1,17 @@
+[Unit]
+Description=A Scuttlebutt server for PeachCloud on %I
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/lib/peach
+ExecStart=/usr/bin/peach-ssb-server
+User=peach
+Group=peach
+Restart=Always
+RestartSec=1
+RuntimeMaxSec=3600
+StartLimitIntervalSec=0
+
+[Install]
+WantedBy=multi-user.target
