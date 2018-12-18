@@ -4,6 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
+EnvironmentFile=/etc/default/peach
 WorkingDirectory=/var/lib/peach
 ExecStart=/usr/bin/peach-ssb-server
 User=peach
